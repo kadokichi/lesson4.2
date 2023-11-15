@@ -1,0 +1,17 @@
+<h3>予約内容の確認</h3>
+
+<% @reservations.each do |reservation| %>
+    <tr>
+        <th>チェックイン</th>
+        <td><%= reservation.check_in.strftime("%Y/%m/%d") %></td>
+        <th>チェックイン</th>
+        <td><%= reservation.check_out.strftime("%Y/%m/%d")%></td>
+        <th>日数</th>
+        <td><%= check_out.to_s - check_in.to_s %></td>
+        <th>人数</th>
+        <td><%= reservation.person %></td>
+        <th>お支払い金額</th>
+        <td><% %></td>
+    </tr>
+        
+    <% end %>

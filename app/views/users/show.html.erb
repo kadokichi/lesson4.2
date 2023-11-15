@@ -1,0 +1,34 @@
+<h3>ユーザー設定</h3>
+
+<h4>プロフィール</h4>
+<table>
+
+    <tr>
+        <th>アイコン画像</th>
+        <td><%= image_tag 'default-user.png'%></td>
+    </tr>
+
+    <tr>
+        <th>名前</th>
+        <td><%= current_user.name %></td>
+    </tr>
+
+    
+    <tr>
+        <th>自己紹介</th>
+        <td></td>
+    </tr>
+
+    <tr>
+        <th>メールアドレス</th>
+        <td><%= current_user.email %></td>
+    </tr>
+
+    <tr>
+        <th>パスワード</th>
+        <td><%= current_user.password %></td>
+    </tr>
+
+</table>
+
+<%= link_to "戻る", :back%> 
