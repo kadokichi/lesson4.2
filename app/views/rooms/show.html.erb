@@ -1,3 +1,5 @@
+<%= link_to "戻る", :back%>
+
 <table>
         <% if @room.image.attached? %>
           <%= image_tag @room.image %>
@@ -42,7 +44,7 @@
             <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.hidden_field :room_id, value: @room.id %>
             <%= f.hidden_field :sum_price, value: @room.price %>
-
+          
             
           </table>
 
