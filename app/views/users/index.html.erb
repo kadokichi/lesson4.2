@@ -1,7 +1,12 @@
 <h3>ユーザー設定</h3>
 
+<%= link_to "アカウント", :users %>
+<%= link_to "プロフィール", current_user %>
 <h4>アカウント</h4>
 <table>
+    <td>
+        <%= link_to "編集", [:edit,current_user] %>
+    </td>
 
     <tr>
         <th>メールアドレス</th>

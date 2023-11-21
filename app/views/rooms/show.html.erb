@@ -23,7 +23,7 @@
         </tr>
 </table>
 
-        <%= form_with model: @reservation, method: :post, url: confirm_reservations_path do |f| %>
+        <%= form_with model: @reservation, method: :post, url: confirm_reservations_path(@room) do |f| %>
           <table>
             
             <tr>
@@ -44,6 +44,7 @@
             <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.hidden_field :room_id, value: @room.id %>
             <%= f.hidden_field :sum_price, value: @room.price %>
+            
           
             
           </table>

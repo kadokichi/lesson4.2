@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users 
 
   get 'rooms/top', to: 'rooms#top'
+  get 'rooms/search', to: 'rooms#search'
   resources :rooms    
 
   resources :reservations do

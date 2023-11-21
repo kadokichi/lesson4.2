@@ -1,5 +1,10 @@
 トップ画面
 
+<%= form_with url: rooms_search_url, local: true, method: :get do |f| %>
+  <%= f.text_field :address, placeholder:"エリアを入力" %>
+  <%= f.submit "検索" %>
+<% end %>
+
 <% if user_signed_in? %> 
   <h4> 名前:<%= current_user.name %></h4>
   <h4> メールアドレス： <%= current_user.email %> </h4>

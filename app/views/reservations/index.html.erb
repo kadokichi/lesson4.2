@@ -30,7 +30,24 @@
             <td><%= reservation.check_out.strftime("%Y/%m/%d") %></td>
             <td><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
             <td><%= link_to "再予約", [:edit,reservation] %></td>
-            <td><%= link_to "削除", reservation, method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+            
+            <td><%= link_to "削除", reservation,
+             method: :delete, 
+             title: "以下の施設を削除しますか？",
+             data: { 
+              confirm: " 
+
+             #{reservation.room.name}
+             #{reservation.check_in.strftime("%Y/%m/%d")}〜#{reservation.check_out.strftime("%Y/%m/%d")}
+             #{reservation.person}人
+             ¥#{reservation.sum_price}
+             よろしければ「OK」ボタンを押してください。",
+             commit: "削除",
+             cancel: "キャンセル"
+            } 
+             
+             %>
+            </td>
         </tr>
         <% end %>
       </tbody>

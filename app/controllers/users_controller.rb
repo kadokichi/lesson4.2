@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     def top
+        
     end
 
     def index
@@ -19,10 +20,16 @@ class UsersController < ApplicationController
     end
 
     def edit
-        @user = User.find(params[:user_id])
+        @user = User.find(current_user.id)
     end
 
     def update
+        @user = User.find(current_user.id)
+        if @user.update(user_params)
+            redirect_to :users
+        else
+            render "edit"
+        end
     end
 
     def destroy
@@ -34,7 +41,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :email, :password, :introduce, :image_name, :image)
+        params.require(:user).permit(:name, :email, :password, :introduce, :image_name, :image, :password_confirmation)
     end
 
 end

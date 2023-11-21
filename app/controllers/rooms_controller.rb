@@ -36,6 +36,10 @@ class RoomsController < ApplicationController
     def destroy
     end
 
+    def search
+        @rooms = Room.where("address like?","% #{params[:address]} %")
+    end
+
     private
 
     def room_params

@@ -36,6 +36,8 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :room_id %>
     <%= f.hidden_field :sum_price, value: @reservation.sum_price * @reservation.person * (@reservation.check_out - @reservation.check_in).to_i %>
+
     <%= f.submit"予約を確定"%>
+    <%= link_to "キャンセル", :back%>
 
 <% end %>

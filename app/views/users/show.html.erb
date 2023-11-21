@@ -1,11 +1,22 @@
 <h3>ユーザー設定</h3>
 
+<%= link_to "アカウント", :users %>
+<%= link_to "プロフィール", current_user %>
+
 <h4>プロフィール</h4>
 <table>
 
+    <td>
+        <%= link_to "編集", [:edit,current_user] %>
+    </td>
+
     <tr>
         <th>アイコン画像</th>
-        <td><%= image_tag 'default-user.png'%></td>
+        <% if current_user.image.attached? %>
+            <%= image_tag current_user.image %>
+        <% else %>
+            <%= image_tag 'default-user.png' %>
+        <% end %>
     </tr>
 
     <tr>
@@ -17,16 +28,6 @@
     <tr>
         <th>自己紹介</th>
         <td></td>
-    </tr>
-
-    <tr>
-        <th>メールアドレス</th>
-        <td><%= current_user.email %></td>
-    </tr>
-
-    <tr>
-        <th>パスワード</th>
-        <td><%= current_user.password %></td>
     </tr>
 
 </table>
