@@ -7,7 +7,7 @@ class Room < ApplicationRecord
 
 
     belongs_to :user
-    has_one :reservation
+    has_one :reservation, dependent: :destroy
     has_one_attached :image
 
     def rooms

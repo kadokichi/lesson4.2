@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
     def top
-        
+        @user = current_user
     end
 
     def index
+        @user = current_user
     end
 
     def new
@@ -30,6 +31,7 @@ class UsersController < ApplicationController
         else
             render "edit"
         end
+    
     end
 
     def destroy
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :email, :password, :introduce, :image_name, :image, :password_confirmation)
+        params.require(:user).permit(:name, :email, :introduce, :image_name, :image,)
     end
 
 end

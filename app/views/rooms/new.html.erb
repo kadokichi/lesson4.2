@@ -1,4 +1,7 @@
-<h3>施設新規登録</h3>
+<%= render "shared/error", obj: @room %>
+
+<div class="editContainner">
+<h2>施設新規登録</h2>
 
 <%= form_with model: @room do |f| %>
     <table>
@@ -9,7 +12,7 @@
 
       <tr>
         <th><%= f.label :description, "施設詳細" %></th>
-        <td><%= f.text_area :description %></td>
+        <td><%= f.text_area :description, size: "35" %></td>
       </tr>
 
       <tr>
@@ -30,8 +33,9 @@
       </tr>
 
     </table>
-
-        <%= link_to "キャンセル", :back, class: "btn btn-secondary btn-lg" %>
-        <%= f.submit"登録" %>
-
+    <div class="selectButton">
+        <%= link_to "キャンセル", "/", class: "btn btn-secondary btn-lg" %>
+        <%= f.submit"新規登録", class: "btn btn-success btn-lg"  %>
+    </div>
   <% end %>
+</div>

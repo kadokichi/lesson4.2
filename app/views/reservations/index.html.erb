@@ -1,31 +1,33 @@
-<h3>予約済み施設一覧</h3>
+<h2>予約済み施設一覧</h2>
 
-<table>
+<div class="listContainner">
+   <table>
       <thead>
-        <tr>
+       <tr>
         <th>画像</th>
         <th>施設名</th>
         <th>紹介文</th>
-        <th>料金</th>
+        <th>合計金額</th>
         <th>チェックイン</th>
         <th>チェックアウト</th>
         <th>予約確定日時</th>
-        </tr>
+        <th colspan="2">設定</th>
+       </tr>
       </thead>
     
       <tbody>
         <% current_user.reservations.each do |reservation| %>
         <tr>
-        <td>
+          <td>
             <% if reservation.room.image.attached? %>
-                <%= image_tag reservation.room.image %>
+                <%= image_tag reservation.room.image, size: "150x120" %>
             <% else %>
-                <%= image_tag 'default-room.png' %>
+                <%= image_tag 'default-room.png', size: "150x120" %>
             <% end %>
-        </td>
+          </td>
             <td><%= link_to reservation.room.name, room_path(reservation.room_id) %></td>
             <td><%= reservation.room.description %></td>
-            <td>¥<%= reservation.sum_price %></td>
+            <td>¥<%= reservation.sum_price.to_s(:delimited) %></td>
             <td><%= reservation.check_in.strftime("%Y/%m/%d") %></td>
             <td><%= reservation.check_out.strftime("%Y/%m/%d") %></td>
             <td><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
@@ -40,7 +42,7 @@
              #{reservation.room.name}
              #{reservation.check_in.strftime("%Y/%m/%d")}〜#{reservation.check_out.strftime("%Y/%m/%d")}
              #{reservation.person}人
-             ¥#{reservation.sum_price}
+             ¥#{reservation.sum_price.to_s(:delimited)}
              よろしければ「OK」ボタンを押してください。",
              commit: "削除",
              cancel: "キャンセル"
@@ -52,3 +54,4 @@
         <% end %>
       </tbody>
     </table>
+</div>

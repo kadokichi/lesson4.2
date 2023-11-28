@@ -31,13 +31,30 @@ class RoomsController < ApplicationController
     end
 
     def update
+        @room = Room.find(params[:id])
+        if @room.update(room_params)
+            redirect_to :rooms
+        else
+            render "edit"
+        end
     end
 
     def destroy
+        @room = Room.find(params[:id])
+        @room.destroy
+        redirect_to :rooms
     end
 
     def search
-        @rooms = Room.where("address like?","% #{params[:address]} %")
+        if params[:address].present?
+            @rooms = Room.where("address like ? ","%#{params[:address]}%")
+        elsif  params[:word].present?
+            @rooms = Room.where("name like ? OR description like ? ","%#{params[:word]}%","%#{params[:word]}%")
+        elsif  params[:address].present? && params[:word].present? 
+            @rooms = Room.where("address like ? ","%#{params[:address]}%").where("name like ? OR description like ? ","%#{params[:word]}%","%#{params[:word]}%")
+        else
+            @rooms = Room.all
+        end
     end
 
     private

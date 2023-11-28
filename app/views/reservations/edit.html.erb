@@ -1,35 +1,42 @@
-<h3>再予約</h3>
+
+<%= render "shared/error", obj: @reservation %>
+<div class="showContainner">
+<h2>再予約</h2>
 
 <table>
-<tr>
-  <td>
-    <% if @reservation.room.image.attached? %>
+  <tr>
+    <td>
+      <% if @reservation.room.image.attached? %>
         <%= image_tag @reservation.room.image %>
-    <% else %>
+      <% else %>
         <%= image_tag 'default-room.png' %>
-    <% end %>
-  </td>
-</tr>
+      <% end %>
+    </td>
+  </tr>
 
-<tr>
-    <td><%= @reservation.room.name %></td>
-</tr>
+  <tr>
+    <td class="hotelName"><%= @reservation.room.name %></td>
+  </tr>
 
-<tr>
+  <tr>
+    <td class="hotelPrice">¥<%= @reservation.room.price.to_s(:delimited) %>~</td>
+  </tr>
+
+  <tr>
     <td><%= @reservation.room.address %></td>
-</tr>
+  </tr>
 
-<tr>
+  <tr>
     <td><%= @reservation.room.description %></td>
-</tr>
+  </tr>
 
-<tr>
-    <td>¥<%= @reservation.sum_price %></td>
-</tr>
         
 </table>
+</div>
 
-<%= form_with model: @reservation, method: :post, url: confirm_reservations_path do |f| %>
+<div class="editContainner">
+
+  <%= form_with model: @reservation, method: :patch, url: edit_confirm_reservation_path do |f| %>
     <table>
       
       <tr>
@@ -48,12 +55,15 @@
       </tr>
 
       <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :id, value: @reservation.id %>
       <%= f.hidden_field :room_id, value: @reservation.room_id %>
       <%= f.hidden_field :sum_price, value: @reservation.room.price %>
     
       
     </table>
-
-    <%= f.submit"再予約する" %> 
-  
+    <div class="selectButton">
+      <%= link_to "キャンセル", :reservations, class: "btn btn-secondary btn-lg" %>
+      <%= f.submit"再予約する", class: "btn btn-success btn-lg" %> 
+    </div>
   <% end %>
+</div>

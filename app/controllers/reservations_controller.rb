@@ -1,10 +1,7 @@
 class ReservationsController < ApplicationController
     def index
         @reservations = Reservation.all
-    end
-
-    def new
-        @reservation = Reservation.new
+        @user = current_user
     end
 
     def confirm 
@@ -30,6 +27,14 @@ class ReservationsController < ApplicationController
         @reservation = Reservation.find(params[:id])
     end
 
+    def edit_confirm
+        @reservation = Reservation.find(params[:id])
+        @reservation.attributes = reservation_params
+        if @reservation.invalid?
+            render "edit"
+        end
+    end
+
     def update
         @reservation = Reservation.find(params[:id])
         if @reservation.update(reservation_params)
@@ -49,7 +54,7 @@ class ReservationsController < ApplicationController
     private
 
     def reservation_params
-        params.require(:reservation).permit(:check_in, :check_out, :person, :sum_price, :user_id, :room_id)
+        params.require(:reservation).permit(:id, :check_in, :check_out, :person, :sum_price, :user_id, :room_id)
     end
 
 end

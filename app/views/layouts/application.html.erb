@@ -8,9 +8,26 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+     <h1>
+      <%= link_to "Myreserve", "/",class:"topTag" %>
+     </h1>
+    </header>
+
+    <div class="containner">
+      <%= yield %>
+    </div>
+
+    <footer>
+     <h1>
+      <%= link_to "Myreserve", "/", class:"topTag" %>
+     </h1>
+     <p>Copyright © Myreserve 2023 All rights reserved</p>
+    </footer>
   </body>
 </html>

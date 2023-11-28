@@ -1,37 +1,46 @@
-<h3>ユーザー設定</h3>
 
-<%= link_to "アカウント", :users %>
-<%= link_to "プロフィール", current_user %>
-<h4>プロフィール</h4>
+<%= render "shared/error", obj: @user %>
 
-<%= form_with model: @user do |f| %>
-<table>
-    <tr>
-        <th><%= f.label :image, "アイコン画像" %></th>
-        <td>
-        <% if current_user.image.attached? %>
-            <%= image_tag current_user.image %>
-        <% else %>
-            <%= image_tag 'default-user.png' %>
-        <% end %>
-        </td>
-        <td><%= f.file_field :image %></td>
-    </tr>
+<div class="userContainner">
+<h2>ユーザー設定</h2>
 
-    <tr>
-        <th><%= f.label :name, "名前" %></th>
-        <td><%= f.text_field :name %></td>
-    </tr>
+<div class="userButton">
+    <%= link_to "アカウント", :users, class:"btn btn-outline-info btn-lg" %>
+    <%= link_to "プロフィール", current_user, class:"btn btn-outline-warning btn-lg" %>
+</div>
 
-    <tr>
-        <th><%= f.label :introduce, "自己紹介" %></th>
-        <td><%= f.text_area :introduce %></td>
-    </tr>
+<h3>プロフィール</h3>
 
+  <div class="userEdit">
+    <%= form_with model: @user do |f| %>
+        <table>
+            <tr>
+                <th><%= f.label :image, "アイコン画像" %></th>
+                <td>
+                    <% if current_user.image.attached? %>
+                        <%= image_tag current_user.image, size: "70x70" %>
+                    <% else %>
+                        <%= image_tag 'default-user.png', size: "70x70" %>
+                    <% end %>
+                    <%= f.file_field :image %>
+                </td>
+            </tr>
 
-</table>
+            <tr>
+                <th><%= f.label :name, "名前" %></th>
+                <td><%= f.text_field :name %></td>
+            </tr>
 
-<%= link_to "キャンセル", current_user %>
-<%= f.submit "保存" %>
+            <tr>
+                <th><%= f.label :introduce, "自己紹介" %></th>
+                <td><%= f.text_area :introduce, size: "35" %></td>
+            </tr>
 
-<% end %>
+        </table>
+
+        <%= link_to "キャンセル", current_user, class: "btn btn-secondary btn-lg" %>
+        <%= f.submit "更新する",class: "btn btn-success btn-lg" %>
+
+    <% end %>
+  </div>
+</div>
