@@ -1,0 +1,16 @@
+<div class="firstContainner">
+  <h1>Myreserveで素敵な旅を体験しよう</h1>
+  <%= form_with url: rooms_search_url, local: true, method: :get do |f| %>
+    <%= f.text_field :address, placeholder:"エリアを入力", size: "60" %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+
+
+<h2><span>あなたにオススメのスポット</span></h2>
+<div class="choiceButton">
+  <%= link_to image_tag("tokyo.png",size: "250x300", alt: "東京"), "/rooms/search?address=東京&commit=検索" %>
+  <%= link_to image_tag("osaka.png",size: "250x300", alt: "大阪"), "/rooms/search?address=大阪&commit=検索" %>
+  <%= link_to image_tag("kyoto.png",size: "250x300", alt: "京都"), "/rooms/search?address=京都&commit=検索" %>
+  <%= link_to image_tag("hokkaido.png",size: "250x300", alt: "北海道"), "/rooms/search?address=北海道&commit=検索" %>
+</div>

@@ -1,0 +1,205 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+  }
+
+header {
+    width: 100%;
+    background-color: blueviolet;
+    height: 80px;
+    padding: 10px 100px;
+    margin-bottom: 100px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    width: 100%;
+    background-color: blueviolet;
+    height: 200px;
+    padding: 30px 100px 0 100px;
+    margin-top: 0;
+    position: absolute;
+}
+
+.noLogin {
+    padding-top: 10px;
+}
+
+.dropdown-menu li {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.dropdown-link {
+    text-decoration: none;
+    color: black;
+}
+
+h2 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+h3 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+span {
+    text-decoration:underline solid red;
+}
+
+input[type="text"] {
+    width: 300px;
+    height: 40px;
+}
+
+input[type="date"] {
+    width: 300px;
+    height: 40px;
+}
+
+input[type="email"] {
+    width: 300px;
+    height: 40px;
+}
+
+input[type="password"] {
+    width: 300px;
+    height: 40px;
+}
+
+.containner {
+    padding: 100px 100px;
+    width: 100%;
+}
+
+.firstContainner {
+    height: 500px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    background-image: image-url("travel.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.firstContainner h1 {
+    padding-top: 200px;
+    padding-bottom: 20px;
+}
+
+.topTag {
+    color: white;
+    text-decoration: none;
+}
+
+.search {
+    padding: 30px 200px;
+}
+
+table {
+    border-spacing: 0; 
+}
+
+.actions {
+    padding: 20px 0 ;
+}
+
+.listContainner th {
+    text-align: left;
+    border-bottom: solid 2px black;
+}
+
+.listContainner td {
+    padding: 10px 20px 10px 0; 
+    text-align: left;
+    border-bottom: solid 1px rgb(178, 169, 169);
+}
+
+.editContainner {
+    padding: 0 300px;
+}
+
+.editContainner th {
+    padding: 20px;   
+}
+
+.editContainner td {
+    padding: 20px 100px;   
+}
+
+.showContainner {
+    padding: 0 230px;
+}
+
+.showContainner td {
+    padding: 10px 0;
+}
+
+.selectButton {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.choiceButton {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hotelName {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.hotelPrice {
+    font-size: 30px;
+    font-weight: bold;
+    color: red;
+}
+
+.hitRoom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.mainContents {
+    background-color: antiquewhite;
+    width: 400px;
+}
+
+.mainContents p {
+   padding: 0 10px;
+}
+
+.userContainner {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.userButton {
+    padding: 50px;
+}
+
+.userProfile {
+    margin: 0 auto;
+    width: 300px;
+    background-color: yellow;
+}
+
+.userEdit {
+    padding: 0 300px;
+}
+
+.userEdit td {
+    padding: 10px 10px;
+}

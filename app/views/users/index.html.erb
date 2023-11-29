@@ -1,0 +1,15 @@
+<div class="userContainner">
+    <h2>ユーザー設定</h2>
+  <div class="userButton">
+    <%= link_to "アカウント", :users, class:"btn btn-outline-info btn-lg" %>
+    <%= link_to "プロフィール", current_user, class:"btn btn-outline-warning btn-lg" %>
+  </div>
+  <h3>アカウント情報</h3>
+    <div class="userProfile">
+        <p>~メールアドレス~</p>
+        <p><%= current_user.email %></p>
+        <p>~パスワード~</p>
+        <p> ******** </p>
+    </div>
+    <p><%= link_to "編集", [:edit, :user_registration], class: "btn btn-info btn-lg" %></p>
+</div>

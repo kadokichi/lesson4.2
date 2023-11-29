@@ -1,0 +1,76 @@
+<%= render "shared/find" %>
+<%= render "shared/error", obj: @reservation %>
+
+<div class="choiceButton">
+  <p><%= link_to "戻る", :back, class: "btn btn-secondary btn-lg"%></p>
+
+  <% if user_signed_in? %>
+    <p><%= link_to"編集",[:edit,@room],class: "btn btn-secondary btn-lg" if @room.user_id == current_user.id %></p>
+  <% end %>
+</div>
+
+<div class="showContainner">
+    <table>
+      <tr>
+        <% if @room.image.attached? %>
+          <td><%= image_tag @room.image %></td>
+        <% else %>
+          <td><%= image_tag 'default-room.png' %></td>
+        <% end %>
+      </tr>
+        <tr>
+          <td class="hotelName"><%= @room.name %></td>
+        </tr>
+
+        <tr>
+          <td class="hotelPrice"><%= @room.price.to_s(:delimited) %>円~</td>
+        </tr>
+
+        <tr>
+          <td><%= @room.address %></td>
+        </tr>
+
+        <tr>
+          <td><%= @room.description %></td>
+        </tr>
+    </table>
+</div>
+
+<div class="editContainner">
+        <%= form_with model: @reservation, method: :post, url: confirm_reservations_path do |f| %>
+          <table>
+            
+            <tr>
+              <th><%= f.label :check_in, "チェックイン" %></th>
+              <td><%= f.date_field :check_in %></td>
+            </tr>
+    
+            <tr>
+              <th><%= f.label :check_out, "チェックアウト" %></th>
+              <td><%= f.date_field :check_out %></td>
+            </tr>
+    
+            <tr>
+              <th><%= f.label :person, "人数" %></th>
+              <td><%= f.text_field :person %></td>
+            </tr>
+
+            <%= f.hidden_field :user_id, value: current_user.id if user_signed_in? %>
+            <%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.hidden_field :sum_price, value: @room.price %>
+            
+          
+            
+          </table>
+          <div class="selectButton">
+          <%= f.submit"予約する", class: "btn btn-success btn-lg" if user_signed_in? %>
+          <%= link_to "ログインが必要です", new_user_session_path, class: 'post', class: "btn btn-danger btn-lg" unless user_signed_in? %>
+          </div>
+        
+        <% end %>
+</div>
+
+      
+
+        
+

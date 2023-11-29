@@ -1,0 +1,25 @@
+<div class="userContainner">
+<h2>ユーザー設定</h2>
+
+<div class="userButton">
+    <%= link_to "アカウント", :users, class:"btn btn-outline-info btn-lg" %>
+    <%= link_to "プロフィール", current_user, class:"btn btn-outline-warning btn-lg" %>
+</div>
+
+<h3>プロフィール</h3>
+  <div class="userProfile">
+     <p>アイコン画像</p>
+     <% if current_user.image.attached? %>
+        <%= image_tag current_user.image, size: "200x200" %>
+     <% else %>
+        <%= image_tag 'default-user.png', size: "200x200" %>
+     <% end %>
+    <p>~名前~</p>
+    <p><%= current_user.name %></p>
+    <p>~自己紹介~</p>
+    <p><%= current_user.introduce %></p>
+  </div>
+
+    <%= link_to "戻る", :back, class: "btn btn-secondary btn-lg" %> 
+    <%= link_to "編集", [:edit,current_user], class: "btn btn-info btn-lg" %>
+</div>

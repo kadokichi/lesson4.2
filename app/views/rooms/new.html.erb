@@ -1,0 +1,41 @@
+<%= render "shared/error", obj: @room %>
+
+<div class="editContainner">
+<h2>施設新規登録</h2>
+
+<%= form_with model: @room do |f| %>
+    <table>
+      <tr>
+        <th><%= f.label :name, "施設名" %></th>
+        <td><%= f.text_field :name %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :description, "施設詳細" %></th>
+        <td><%= f.text_area :description, size: "35" %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :price, "料金" %></th>
+        <td><%= f.text_field :price %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :address, "住所" %></th>
+        <td><%= f.text_field :address %></td>
+      </tr>
+
+      <%= f.hidden_field :user_id, value: current_user.id %>
+
+      <tr>
+        <th> 画像</th>
+        <td><%= f.file_field :image %></td>
+      </tr>
+
+    </table>
+    <div class="selectButton">
+        <%= link_to "キャンセル", "/", class: "btn btn-secondary btn-lg" %>
+        <%= f.submit"新規登録", class: "btn btn-success btn-lg"  %>
+    </div>
+  <% end %>
+</div>
