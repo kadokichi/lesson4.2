@@ -11,9 +11,11 @@ header {
     width: 100%;
     background-color: blueviolet;
     height: 80px;
-    padding: 0 100px;
+    padding: 10px 100px;
     margin-bottom: 100px;
     position: absolute;
+    display: flex;
+    justify-content: space-between;
 }
 
 footer {
@@ -22,6 +24,21 @@ footer {
     height: 200px;
     padding: 30px 100px 0 100px;
     margin-top: 0;
+    position: absolute;
+}
+
+.noLogin {
+    padding-top: 10px;
+}
+
+.dropdown-menu li {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.dropdown-link {
+    text-decoration: none;
+    color: black;
 }
 
 h2 {
@@ -32,6 +49,10 @@ h2 {
 h3 {
     padding-top: 30px;
     padding-bottom: 30px;
+}
+
+span {
+    text-decoration:underline solid red;
 }
 
 input[type="text"] {
@@ -58,7 +79,22 @@ input[type="password"] {
     padding: 100px 100px;
     width: 100%;
 }
-    
+
+.firstContainner {
+    height: 500px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    background-image: image-url("travel.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.firstContainner h1 {
+    padding-top: 200px;
+    padding-bottom: 20px;
+}
 
 .topTag {
     color: white;

@@ -63,7 +63,8 @@
             
           </table>
           <div class="selectButton">
-          <%= f.submit"予約する", class: "btn btn-success btn-lg" %> 
+          <%= f.submit"予約する", class: "btn btn-success btn-lg" if user_signed_in? %>
+          <%= link_to "ログインが必要です", new_user_session_path, class: 'post', class: "btn btn-danger btn-lg" unless user_signed_in? %>
           </div>
         
         <% end %>

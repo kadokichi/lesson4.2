@@ -1,32 +1,16 @@
-
-
-<%= form_with url: rooms_search_url, local: true, method: :get do |f| %>
-  <%= f.text_field :address, placeholder:"エリアを入力", size: "60" %>
-  <%= f.submit "検索" %>
-<% end %>
-
-<% if user_signed_in? %> 
-  <h4> 名前:<%= current_user.name %></h4>
-  <h4> メールアドレス： <%= current_user.email %> </h4>
-  
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
-<% else %>
-  <h2> 現在ログインしていません </h2>
-  <%= link_to "ログイン", new_user_session_path, class: 'post' %> 
-  <%= link_to "新規登録", new_user_registration_path, class: 'post' %> 
-<% end %>
-<div class="imageSearch">
-  <%= link_to "アカウント設定", :users %>
-  <%= link_to "施設の新規登録", new_room_url %>
-  <%= link_to "予約済み一覧", :reservations %>
-  <%= link_to "登録済み施設一覧", :rooms %>
+<div class="firstContainner">
+  <h1>Myreserveで素敵な旅を体験しよう</h1>
+  <%= form_with url: rooms_search_url, local: true, method: :get do |f| %>
+    <%= f.text_field :address, placeholder:"エリアを入力", size: "60" %>
+    <%= f.submit "検索" %>
+  <% end %>
 </div>
 
 
-<h2>あなたにオススメのスポット</h2>
-
-<%= link_to image_tag("tokyo.png",size: "250x300", alt: "東京"), "/rooms/search?address=東京&commit=検索" %>
-<%= link_to image_tag("osaka.png",size: "250x300", alt: "大阪"), "/rooms/search?address=大阪&commit=検索" %>
-<%= link_to image_tag("kyoto.png",size: "250x300", alt: "京都"), "/rooms/search?address=京都&commit=検索" %>
-<%= link_to image_tag("hokkaido.png",size: "250x300", alt: "北海道"), "/rooms/search?address=北海道&commit=検索" %>
-
+<h2><span>あなたにオススメのスポット</span></h2>
+<div class="choiceButton">
+  <%= link_to image_tag("tokyo.png",size: "250x300", alt: "東京"), "/rooms/search?address=東京&commit=検索" %>
+  <%= link_to image_tag("osaka.png",size: "250x300", alt: "大阪"), "/rooms/search?address=大阪&commit=検索" %>
+  <%= link_to image_tag("kyoto.png",size: "250x300", alt: "京都"), "/rooms/search?address=京都&commit=検索" %>
+  <%= link_to image_tag("hokkaido.png",size: "250x300", alt: "北海道"), "/rooms/search?address=北海道&commit=検索" %>
+</div>
